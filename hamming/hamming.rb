@@ -1,10 +1,16 @@
 # Hamming class
 class Hamming
-  def initialize
-    @point_mutation = 0
-  end
+  VERSION = 1
+  def self.compute(strand_one, strand_two)
+    strand_one_array = strand_one.split('')
+    strand_two_array = strand_two.split('')
 
-  def self.compute(dna_strand_one, dna_strand_two)
-    same?(dna_strand_one, dna_strand_two)
+    hamming_distance = 0
+    strand_one_array.size.times do
+      counter = 0
+      hamming_distance += 1 unless strand_one_array[counter] == strand_two_array[counter]
+      counter += 1
+    end
+    hamming_distance
   end
 end
