@@ -1,10 +1,9 @@
-# Phone number class
 class PhoneNumber
   INVALID = '0000000000'.freeze
 
   def initialize(value)
-    @number = value.tr('^A-Za-z0-9', '') # clean up number
-    remove_US_calling_code
+    @number = value.tr('^A-Za-z0-9', '')
+    remove_US_calling_code!
   end
 
   def number
@@ -20,11 +19,10 @@ class PhoneNumber
     "#{@number}"
   end
 
-  # Private methods
   private
 
-  def remove_US_calling_code
-  (@number.size == 11) && (@number.start_with?('1')) ? @number = @number.slice!(1..10) : @number
+  def remove_US_calling_code!
+    (@number.size == 11) && (@number.start_with?('1')) ? @number = @number.slice!(1..10) : @number
   end
 
   def only_contains_numbers?
@@ -36,8 +34,7 @@ class PhoneNumber
   end
 
   def stylize
-    phone_number_array = @number.split('')
-    phone_number_array.insert(0, '(').insert(4, ') ').insert(8, '-')
+    phone_number_array = @number.split('').insert(0, '(').insert(4, ') ').insert(8, '-')
     @number = phone_number_array.join('')
   end
 end
