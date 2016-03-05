@@ -8,8 +8,7 @@ class PhoneNumber
   end
 
   def number
-    return INVALID unless valid_size? && only_contains_numbers?
-    @number
+    valid_size? && only_contains_numbers? ? @number : INVALID
   end
 
   def area_code
@@ -25,7 +24,7 @@ class PhoneNumber
   private
 
   def remove_US_calling_code
-    @number = @number.slice!(1..10) if (@number.size == 11) && (@number.start_with?('1'))
+  (@number.size == 11) && (@number.start_with?('1')) ? @number = @number.slice!(1..10) : @number
   end
 
   def only_contains_numbers?
