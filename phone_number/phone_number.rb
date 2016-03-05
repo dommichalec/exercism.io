@@ -21,7 +21,7 @@ class PhoneNumber
   def to_s
     remove_US_calling_code
     style_number
-    "#{number}"
+    "#{@number}"
   end
 
   # Private methods
