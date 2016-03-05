@@ -37,8 +37,12 @@ class PhoneNumber
   def style_number
     number_array = @number.split('')
     number_array.insert(0, '(')
-    number_array.insert(4, ')')
+    number_array.insert(4, ') ')
     number_array.insert(8, '-')
     @number = number_array.join('')
+  end
+
+  def size
+    @number.size
   end
 end

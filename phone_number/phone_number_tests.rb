@@ -69,11 +69,11 @@ class PhoneNumberTest < Minitest::Test
 
   def test_pretty_print
     number = PhoneNumber.new('5551234567')
-    assert_equal '(555)123-4567', number.to_s
+    assert_equal '(555) 123-4567', number.to_s
   end
 
   def test_pretty_print_with_full_us_phone_number
     number = PhoneNumber.new('11234567890')
-    assert_equal '(123)456-7890', number.to_s
+    assert_equal '(123) 456-7890', number.to_s
   end
 end
