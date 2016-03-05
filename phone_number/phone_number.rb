@@ -4,21 +4,19 @@ class PhoneNumber
 
   def initialize(value)
     @number = value.tr('^A-Za-z0-9', '') # clean up number
+    remove_US_calling_code
   end
 
   def number
-    remove_US_calling_code
     return INVALID unless valid_size? && only_contains_numbers?
     @number
   end
 
   def area_code
-    remove_US_calling_code
     @area_code = @number.scan(/.../)[0]
   end
 
   def to_s
-    remove_US_calling_code
     stylize
     "#{@number}"
   end
