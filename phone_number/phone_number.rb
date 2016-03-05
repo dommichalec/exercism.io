@@ -4,7 +4,6 @@ class PhoneNumber
 
   def initialize(value)
     @number = value.tr('^A-Za-z0-9', '') # clean up number
-    @area_code = @number.scan(/.../)[0]
   end
 
   def number
@@ -15,6 +14,7 @@ class PhoneNumber
 
   def area_code
     remove_US_calling_code
+    @area_code = @number.scan(/.../)[0]
     @area_code
   end
 
