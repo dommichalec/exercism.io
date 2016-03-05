@@ -21,6 +21,7 @@ class PhoneNumber
   def to_s
     remove_US_calling_code
     style_number
+    "#{number}"
   end
 
   # Private methods
@@ -39,11 +40,9 @@ class PhoneNumber
   end
 
   def style_number
-    number_array = @number.split('')
-    number_array.insert(0, '(')
-    number_array.insert(4, ') ')
-    number_array.insert(8, '-')
-    @number = number_array.join('')
-    "#{@number}"
+    phone_number_array = @number.split('')
+    phone_number_array.insert(0, '(').insert(4, ') ').insert(8, '-')
+    @number = phone_number_array.join('')
+    @number
   end
 end
