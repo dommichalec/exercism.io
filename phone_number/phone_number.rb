@@ -15,12 +15,11 @@ class PhoneNumber
   def area_code
     remove_US_calling_code
     @area_code = @number.scan(/.../)[0]
-    @area_code
   end
 
   def to_s
     remove_US_calling_code
-    style_number
+    stylize
     "#{@number}"
   end
 
@@ -39,10 +38,9 @@ class PhoneNumber
     @number.size == 10
   end
 
-  def style_number
+  def stylize
     phone_number_array = @number.split('')
     phone_number_array.insert(0, '(').insert(4, ') ').insert(8, '-')
     @number = phone_number_array.join('')
-    @number
   end
 end
