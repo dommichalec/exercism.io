@@ -11,18 +11,17 @@ class PhoneNumber
   end
 
   def area_code
-    @area_code = @number.scan(/.../)[0]
+    @number.scan(/.../)[0]
   end
 
   def to_s
     stylize
-    "#{@number}"
   end
 
   private
 
   def remove_US_calling_code!
-    (@number.size == 11) && (@number.start_with?('1')) ? @number = @number.slice!(1..10) : @number
+    @number.size == 11 && @number.start_with?('1') ? @number = @number.slice!(1..10) : @number
   end
 
   def only_contains_numbers?
@@ -35,6 +34,6 @@ class PhoneNumber
 
   def stylize
     phone_number_array = @number.split('').insert(0, '(').insert(4, ') ').insert(8, '-')
-    @number = phone_number_array.join('')
+    @number = phone_number_array.join('').to_s
   end
 end
