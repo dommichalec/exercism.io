@@ -10,7 +10,7 @@ ACRONYM_PAIRS = {
 # Acronym class
 class Acronym
   VERSION = 1
-  
+
   def self.abbreviate(given)
     expected = ACRONYM_PAIRS[given]
     expected
