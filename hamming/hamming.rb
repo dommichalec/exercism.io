@@ -6,8 +6,8 @@ class Hamming
     strand_two_array = strand_two.split('')
 
     hamming_distance = 0
+    counter = 0
     strand_one_array.size.times do
-      counter = 0
       hamming_distance += 1 unless strand_one_array[counter] == strand_two_array[counter]
       counter += 1
     end
